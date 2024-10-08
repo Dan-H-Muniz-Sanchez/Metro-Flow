@@ -1,0 +1,12 @@
+dbfread
+pandas
+numpy
+matplotlib
+geopandas
+shapely
+contextily
+plotly
+folium
+imageio
+selenium
+webdriver-manager
