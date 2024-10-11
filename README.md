@@ -3,3 +3,6 @@ Metro-Flow This repository explores the application of machine learning and deep
 
 ## Collab
 https://colab.research.google.com/drive/1KuedZz5e9FefHqKOd7tw-z4RwyEdilA2?usp=sharing
+![Concurrence at Chicago metro stations during 2023](imgs/2023_concurrence_per_station.gif)
+
+The GIF shows the concurrence at each Chicago metro station during the year 2023.
