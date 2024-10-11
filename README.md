@@ -10,3 +10,4 @@ https://colab.research.google.com/drive/1KuedZz5e9FefHqKOd7tw-z4RwyEdilA2?usp=sh
 
 
 The GIF shows the concurrence at each Chicago metro station during the year 2023.
+All the data comes from: https://data.cityofchicago.org/
