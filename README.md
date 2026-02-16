@@ -27,11 +27,11 @@ We transform Home–Work OD records into station-to-station flows, route them th
 
 ### 1) Assign homes/jobs to the nearest CTA station
 For a point $x$ (home or job) and stations $\mathcal{S}$:
-$
+$$
 s^*(x)=\underset{s\in\mathcal{S}}{\operatorname{argmin}}\; d(x,s),
 \qquad
 p(s\mid x)=\mathbb{1}\!\left[s=s^*(x)\right].
-$
+$$
 
 ### 2) Aggregate station-to-station OD flow
 Given OD records $(h,w)$ with weight $N_{hw}$ (e.g., `S000`):
