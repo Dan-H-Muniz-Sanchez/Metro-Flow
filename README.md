@@ -12,11 +12,11 @@ Unlike a static density map, the “heat” in the GIF **moves along the train l
 - **Evening commute (PM)**: flow disperses outward as workers return home.
 
 ## Datasets used
-1) **CTA rail stops (stations + line membership)**
+1) **CTA rail stops (stations + line membership)**  
 - City of Chicago Data Portal: *CTA - System Information - List of 'L' Stops*  
   https://data.cityofchicago.org/Transportation/CTA-System-Information-List-of-L-Stops/8pix-ypme
 
-2) **Home ↔ Work job flows (Origin–Destination)**
+2) **Home ↔ Work job flows (Origin–Destination)**  
 - U.S. Census LEHD: *LODES (Origin-Destination Employment Statistics)*  
   https://lehd.ces.census.gov/data/  
 - LODES documentation / overview  
@@ -26,40 +26,40 @@ Unlike a static density map, the “heat” in the GIF **moves along the train l
 We transform Home–Work OD records into station-to-station flows, route them through the CTA graph, and convert routed flows into a continuous heat field.
 
 ### 1) Assign homes/jobs to the nearest CTA station
-For a point $\(x\)$ (home or job) and stations $\(\mathcal{S}\):
-\[
-s^*(x)=\arg\min_{s\in\mathcal{S}} d(x,s),
+For a point $x$ (home or job) and stations $\mathcal{S}$:
+$$
+s^*(x)=\underset{s\in\mathcal{S}}{\operatorname{argmin}}\; d(x,s),
 \qquad
-p(s\mid x)=\mathbf{1}[s=s^*(x)].
-\]$
+p(s\mid x)=\mathbb{1}\!\left[s=s^*(x)\right].
+$$
 
 ### 2) Aggregate station-to-station OD flow
-Given OD records \((h,w)\) with weight \(N_{hw}\) (e.g., `S000`):
-$\[
+Given OD records $(h,w)$ with weight $N_{hw}$ (e.g., `S000`):
+$$
 F_{ij}=\sum_{(h,w)} N_{hw}\; p(i\mid h)\; p(j\mid w).
-\]$
+$$
 
 ### 3) Route flow through the CTA graph
-On the network \(G=(\mathcal{S},\mathcal{E})\), each edge \(e\) has travel time:
-\[
+On the network $G=(\mathcal{S},\mathcal{E})$, each edge $e$ has travel time:
+$$
 \tau_e=\frac{L_e}{v}+\tau_{\text{dwell}},
-\]
+$$
 and the route is the shortest-time path:
-\[
-P_{ij}=\arg\min_{P:i\to j}\sum_{e\in P}\tau_e.
-\]
+$$
+P_{ij}=\underset{P:i\to j}{\operatorname{argmin}}\;\sum_{e\in P}\tau_e.
+$$
 
 ### 4) Make the heat “flow” in time
-We use a departure profile \(g(t)\) (15-minute bins) and shift flow along the path using edge travel times.  
-This yields edge presence \(\Phi_e(t)\), which is then rendered as a continuous heat field.
+We use a departure profile $g(t)$ (e.g., 15-minute bins) and shift flow along each path using cumulative edge travel times.  
+This yields edge presence $\Phi_e(t)$, which is then rendered as a continuous heat field.
 
 ### 5) Continuous heatmap (kernel density)
-Sampling \(R\) points along each edge:
-\[
+Sampling $R$ points along each edge:
+$$
 H(x,t)=\sum_{e\in\mathcal{E}} \Phi_e(t)\;
 \frac{1}{R}\sum_{r=1}^R
-\exp\!\left(-\frac{\|x-x_{e,r}\|^2}{2\sigma^2}\right).
-\]
+\exp\!\left(-\frac{\lVert x-x_{e,r}\rVert^2}{2\sigma^2}\right).
+$$
 
 ## Assumptions (prototype)
 - **All OD commuters use CTA rail** (upper-bound / illustrative simulation).
@@ -67,9 +67,10 @@ H(x,t)=\sum_{e\in\mathcal{E}} \Phi_e(t)\;
 - Routing uses **shortest travel time** on the graph.
 
 ## Output
-- An **interactive map** (lonboard/deck.gl) with time slider.
+- An **interactive map** (lonboard/deck.gl) with a time slider.
 - Exportable **GIF/MP4** like the one shown above.
 
 ---
 
 If you use this repo, please cite the City of Chicago Data Portal (CTA stops) and U.S. Census LEHD LODES for OD flows.
+
