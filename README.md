@@ -35,9 +35,9 @@ p(s\mid x)=\mathbf{1}[s=s^*(x)].
 
 ### 2) Aggregate station-to-station OD flow
 Given OD records \((h,w)\) with weight \(N_{hw}\) (e.g., `S000`):
-\[
+$\[
 F_{ij}=\sum_{(h,w)} N_{hw}\; p(i\mid h)\; p(j\mid w).
-\]
+\]$
 
 ### 3) Route flow through the CTA graph
 On the network \(G=(\mathcal{S},\mathcal{E})\), each edge \(e\) has travel time:
