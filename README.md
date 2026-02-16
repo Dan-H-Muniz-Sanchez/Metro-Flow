@@ -30,14 +30,13 @@ We transform Home–Work OD records into station-to-station flows, route them th
 For a point $x$ (home or job) and stations $S$:
 
 $$
-s^{*}(x) = \mathrm{argmin}_{s \in S}\; d(x,s),
-\qquad
-p(s \mid x) =
-\begin{cases}
-1, & s = s^{*}(x) \\
-0, & \mathrm{otherwise}
-\end{cases}
+s^{*}(x) = \mathrm{argmin}_{s \in S}\; d(x,s)
 $$
+
+$$
+p(s \mid x) = 1 \;\; \mathrm{if}\;\; s = s^{*}(x), \;\; 0 \;\; \mathrm{otherwise}
+$$
+
 
 ### 2) Aggregate station-to-station OD flow
 Given OD records $(h,w)$ with weight $N_{hw}$ (e.g., `S000`):
