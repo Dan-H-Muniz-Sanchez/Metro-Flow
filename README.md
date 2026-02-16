@@ -31,7 +31,6 @@ For a point $x$ (home or job) and stations $\mathcal{S}$:
 
 $$
 s^*(x)=\underset{s\in\mathcal{S}}{\operatorname{argmin}}\; d(x,s),
-\qquad
 p(s\mid x)=\mathbf{1}\!\left[s=s^*(x)\right].
 $$
 
