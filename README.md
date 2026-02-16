@@ -26,12 +26,12 @@ Unlike a static density map, the “heat” in the GIF **moves along the train l
 We transform Home–Work OD records into station-to-station flows, route them through the CTA graph, and convert routed flows into a continuous heat field.
 
 ### 1) Assign homes/jobs to the nearest CTA station
-For a point \(x\) (home or job) and stations \(\mathcal{S}\):
+For a point $\(x\)$ (home or job) and stations $\(\mathcal{S}\):
 \[
 s^*(x)=\arg\min_{s\in\mathcal{S}} d(x,s),
 \qquad
 p(s\mid x)=\mathbf{1}[s=s^*(x)].
-\]
+\]$
 
 ### 2) Aggregate station-to-station OD flow
 Given OD records \((h,w)\) with weight \(N_{hw}\) (e.g., `S000`):
