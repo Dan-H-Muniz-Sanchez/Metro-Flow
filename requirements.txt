@@ -1,0 +1,10 @@
+pandas>=2.0
+numpy>=1.24
+networkx>=3.0
+geopandas>=0.14
+shapely>=2.0
+lonboard>=0.8
+ipywidgets>=8.0
+matplotlib>=3.7
+imageio>=2.31
+pyarrow>=14
